@@ -6,7 +6,7 @@
 
 ## 1. Summary
 
-StudyMate helps students organize their weekly class timetable, plan study tasks, and spend focused time working toward their goals. Users create accounts so their schedules and tasks are saved in MongoDB and associated with the correct account.
+StudyMate helps students organize their weekly class timetable, plan study tasks, and spend focused time working toward their goals. Users create accounts so their schedules and tasks are saved in PostgreSQL and associated with the correct account.
 
 ## 2. Problem
 
@@ -20,7 +20,7 @@ Students may keep their classes and study work in separate places. A browser-onl
 - A student can upload a timetable image, review and correct extracted rows, and choose which rows to save.
 - A student's data is saved between sessions and cannot be read or changed by another account.
 - A student can set a task reminder and run a focus timer.
-- The application can be deployed as a public HTTPS Node.js website backed by a hosted MongoDB database.
+- The application can be deployed as a public HTTPS Node.js website backed by a hosted PostgreSQL database.
 
 ## 4. Target users
 
@@ -74,15 +74,15 @@ Students who want a lightweight way to organize class times and personal study t
 - Use responsive layouts for desktop and mobile browsers.
 - Serve the application over HTTPS in production.
 - Keep database credentials and session secrets in host environment variables.
-- Use MongoDB for application data and persisted sessions in production.
+- Use PostgreSQL for application data and persisted sessions in production.
 - Provide understandable error feedback for invalid input and failed requests.
 
 ## 8. Technology architecture
 
 - **Frontend:** HTML, CSS, browser JavaScript; separate dashboard, login, signup, timetable, tasks, reminders, and focus pages.
 - **Application server:** Node.js and Express REST endpoints.
-- **Database:** MongoDB with Mongoose models for users and planner entries.
-- **Authentication:** bcrypt password hashes and Express sessions stored in MongoDB.
+- **Database:** PostgreSQL accessed with the Node.js `pg` client for users, planner entries, and sessions.
+- **Authentication:** bcrypt password hashes and Express sessions stored in PostgreSQL.
 - **Timetable OCR:** Tesseract.js in the browser; extracted text is an untrusted draft until reviewed.
 
 ## 9. Out of scope and constraints

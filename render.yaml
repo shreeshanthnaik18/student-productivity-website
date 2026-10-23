@@ -2,6 +2,7 @@ services:
   - type: web
     name: studymate-web
     runtime: node
+    plan: free
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api/health
@@ -10,5 +11,5 @@ services:
         value: production
       - key: SESSION_SECRET
         generateValue: true
-      - key: MONGODB_URI
+      - key: DATABASE_URL
         sync: false
